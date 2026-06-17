@@ -110,10 +110,10 @@ const Coupon = ({ mysteryTitle, isLast, onClick, disabled }) => {
               top: { duration: 0.8, ease: "easeInOut" },
               rotate: { duration: 0.2, repeat: 4, ease: "easeInOut" }
             }}
-            className="absolute right-[96px] md:right-[128px] -translate-x-[12px] z-50 pointer-events-none"
+            className="absolute right-[96px] md:right-[128px] -translate-x-[12px] z-50 pointer-events-none will-change-transform"
             style={{ y: '-50%' }}
           >
-            <Scissors size={28} className="text-stone-900 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] animate-pulse" />
+            <Scissors size={28} className="text-stone-900 drop-shadow-sm animate-pulse" />
           </motion.div>
         )}
       </div>
@@ -171,9 +171,6 @@ export default function CouponsPage({ isActive, onBackClick, onSelectCoupon }) {
   return (
     <motion.div 
       className="relative w-full min-h-screen bg-[#eab4ab] py-12 px-4 overflow-y-auto overflow-x-hidden"
-      style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`
-      }}
     >
       {/* Background Scattered Photos (No frame effect) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block z-0">
@@ -205,7 +202,7 @@ export default function CouponsPage({ isActive, onBackClick, onSelectCoupon }) {
         {balloons.map((b) => (
           <motion.div
             key={b.id}
-            className={`absolute rounded-[50%] opacity-90 shadow-lg ${b.color} z-10`}
+            className={`absolute rounded-[50%] opacity-90 shadow-sm ${b.color} z-10 will-change-transform`}
             style={{ 
               width: b.size, 
               height: b.size * 1.25, 

@@ -222,15 +222,15 @@ export default function StoryQuiz({ onCompleteQuiz, onCancelQuiz }) {
                 setStep(14);
                 setIsRidingAway(false);
               }}
-              className="absolute top-1/2 -translate-y-1/2 flex items-center whitespace-nowrap"
+              className="absolute top-1/2 -translate-y-1/2 flex items-center whitespace-nowrap will-change-transform"
             >
               <img 
                 src="/bike.png" 
                 alt="Bike" 
-                className="w-48 md:w-64 lg:w-80 object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 relative" 
+                className="w-48 md:w-64 lg:w-80 object-contain z-50 relative drop-shadow-sm" 
                 style={{ transform: 'scaleX(-3.5) scaleY(3.5)' }}
               />
-              <span className="text-[#c42d3c] font-black text-5xl md:text-7xl lg:text-[120px] italic tracking-widest drop-shadow-lg relative z-40 ml-12" style={{ fontFamily: "'Inter', sans-serif" }}>
+              <span className="text-[#c42d3c] font-black text-5xl md:text-7xl lg:text-[120px] italic tracking-widest relative z-40 ml-12 drop-shadow-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
                 Majaaaaaaaaaaaaaaaaaaaaa
               </span>
             </motion.div>

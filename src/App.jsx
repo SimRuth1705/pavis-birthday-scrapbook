@@ -5,12 +5,14 @@ import CouponsPage from './components/CouponsPage';
 import CouponDetailPage from './components/CouponDetailPage';
 import StoryQuiz from './components/StoryQuiz';
 import CustomCursor from './components/CustomCursor';
+import LoadingScreen from './components/LoadingScreen';
 
 function App() {
   const [currentView, setCurrentView] = useState('scrapbook');
   const [selectedCoupon, setSelectedCoupon] = useState(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -94,11 +96,17 @@ function App() {
             </div>
           </motion.div>
         )}
+
+        {isFullscreen && !isLoaded && (
+          <LoadingScreen onLoadingComplete={() => setIsLoaded(true)} />
+        )}
       </AnimatePresence>
 
-      <div className="w-full h-full absolute inset-0 z-10">
-        <ScrapbookLanding onDeeperClick={() => setCurrentView('coupons')} />
-      </div>
+      {isLoaded && (
+        <>
+          <div className="w-full h-full absolute inset-0 z-10">
+            <ScrapbookLanding onDeeperClick={() => setCurrentView('coupons')} />
+          </div>
 
       <AnimatePresence>
         {(currentView === 'coupons' || currentView === 'coupon-detail' || currentView === 'quiz') && (
@@ -160,6 +168,8 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      </>
+      )}
     </div>
   );
 }
