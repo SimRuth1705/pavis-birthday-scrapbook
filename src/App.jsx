@@ -4,7 +4,6 @@ import ScrapbookLanding from './components/ScrapbookLanding';
 import CouponsPage from './components/CouponsPage';
 import CouponDetailPage from './components/CouponDetailPage';
 import StoryQuiz from './components/StoryQuiz';
-import CustomCursor from './components/CustomCursor';
 import LoadingScreen from './components/LoadingScreen';
 
 function App() {
@@ -34,8 +33,6 @@ function App() {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden select-none bg-black">
-      <CustomCursor />
-
       <AnimatePresence>
         {isMobile && (
           <motion.div
