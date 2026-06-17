@@ -9,6 +9,8 @@ const PRELOAD_IMAGES = [
   '/clay_gift.png',
   '/clay_heart.png',
   '/clay_star.png',
+  '/Pink_Cutecore_pointer.png',
+  '/Pink_Cutecore_cursor.png',
   '/friend_photo_1.png',
   '/friend_photo_2.png',
   '/friend_photo_3.png',
@@ -97,6 +99,13 @@ export default function LoadingScreen({ onLoadingComplete }) {
         >
           {progress}%
         </p>
+      </div>
+
+      {/* Hidden container to force physical DOM decoding and prevent pop-in */}
+      <div className="absolute opacity-0 pointer-events-none w-1 h-1 overflow-hidden" aria-hidden="true">
+        {PRELOAD_IMAGES.map((src) => (
+          <img key={src} src={src} alt="preload" />
+        ))}
       </div>
     </motion.div>
   );
