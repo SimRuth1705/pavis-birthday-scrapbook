@@ -9,8 +9,6 @@ const PRELOAD_IMAGES = [
   '/clay_gift.png',
   '/clay_heart.png',
   '/clay_star.png',
-  '/Pink_Cutecore_pointer.png',
-  '/Pink_Cutecore_cursor.png',
   '/friend_photo_1.png',
   '/friend_photo_2.png',
   '/friend_photo_3.png',

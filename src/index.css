@@ -15,12 +15,6 @@ body {
   height: 100vh;
   overflow: hidden;
   user-select: none;
-  cursor: url('/Pink_Cutecore_cursor.png') 2 2, auto !important;
-}
-
-/* Hover pointer for interactive elements */
-a, button, [role="button"], .cursor-pointer, input, select, textarea {
-  cursor: url('/Pink_Cutecore_pointer.png') 2 2, pointer !important;
 }
 
 #root {
