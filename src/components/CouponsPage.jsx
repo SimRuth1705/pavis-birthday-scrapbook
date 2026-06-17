@@ -43,7 +43,7 @@ const Coupon = ({ mysteryTitle, isLast, onClick, disabled }) => {
       {/* Main Ticket Layout */}
       <div 
         onClick={handleStartCut}
-        className={`relative flex w-full h-[100px] md:h-[120px] bg-transparent select-none ${
+        className={`relative flex w-full h-[80px] md:h-[100px] bg-transparent select-none ${
           disabled || cutPhase !== 'idle' ? 'pointer-events-none' : 'cursor-pointer'
         }`}
       >
@@ -51,22 +51,22 @@ const Coupon = ({ mysteryTitle, isLast, onClick, disabled }) => {
         <motion.div
           animate={cutPhase === 'split' ? { x: -400, opacity: 0, rotate: -8 } : { x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeIn" }}
-          className="relative flex-1 flex items-center justify-between px-6 md:px-12 h-full bg-[#f28b8b] rounded-l-2xl border-r-[2.5px] border-dashed border-[#b64b4b]/40 shadow-md"
+          className="relative flex-1 flex items-center justify-between px-4 md:px-8 h-full bg-[#f28b8b] rounded-l-2xl border-r-[2.5px] border-dashed border-[#b64b4b]/40 shadow-md"
           style={{ transformOrigin: 'bottom left' }}
         >
           {/* Left Semi-circle cutout */}
-          <div className="absolute top-1/2 -left-4 w-8 h-8 bg-[#eab4ab] rounded-full transform -translate-y-1/2 shadow-inner" style={{ boxShadow: 'inset -3px 0px 4px -2px rgba(0,0,0,0.1)' }} />
+          <div className="absolute top-1/2 -left-4 w-6 h-6 md:w-8 md:h-8 bg-[#eab4ab] rounded-full transform -translate-y-1/2 shadow-inner" style={{ boxShadow: 'inset -3px 0px 4px -2px rgba(0,0,0,0.1)' }} />
 
           {/* Content */}
-          <div className="flex flex-col items-center justify-center flex-1 pr-4 py-2 pointer-events-none">
+          <div className="flex flex-col items-center justify-center flex-1 pr-2 py-1 pointer-events-none">
             <h2 
-              className="text-2xl md:text-4xl text-[#c42d3c] font-black mb-2 text-center tracking-widest uppercase" 
+              className="text-lg md:text-2xl text-[#c42d3c] font-black mb-1 text-center tracking-widest uppercase" 
               style={{ fontFamily: "'Playfair Display', serif", textShadow: '1px 1px 0px rgba(255,255,255,0.3)' }}
             >
               {mysteryTitle}
             </h2>
             <p 
-              className="text-sm md:text-lg text-stone-800 text-center leading-tight font-bold italic" 
+              className="text-xs md:text-sm text-stone-800 text-center leading-tight font-bold italic" 
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Dare to select to reveal your fate...
@@ -79,19 +79,19 @@ const Coupon = ({ mysteryTitle, isLast, onClick, disabled }) => {
         <motion.div
           animate={cutPhase === 'split' ? { x: 400, opacity: 0, rotate: 8 } : { x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeIn" }}
-          className="relative w-24 md:w-32 flex items-center justify-center h-full bg-[#f28b8b] rounded-r-2xl shadow-md flex-shrink-0"
+          className="relative w-20 md:w-28 flex items-center justify-center h-full bg-[#f28b8b] rounded-r-2xl shadow-md flex-shrink-0"
           style={{ transformOrigin: 'bottom right' }}
         >
           {/* Right Semi-circle cutout */}
-          <div className="absolute top-1/2 -right-4 w-8 h-8 bg-[#eab4ab] rounded-full transform -translate-y-1/2 shadow-inner" style={{ boxShadow: 'inset 3px 0px 4px -2px rgba(0,0,0,0.1)' }} />
+          <div className="absolute top-1/2 -right-4 w-6 h-6 md:w-8 md:h-8 bg-[#eab4ab] rounded-full transform -translate-y-1/2 shadow-inner" style={{ boxShadow: 'inset 3px 0px 4px -2px rgba(0,0,0,0.1)' }} />
 
           {/* Perforation small cutouts */}
-          <div className="absolute -top-2.5 left-[-10px] w-5 h-5 bg-[#eab4ab] rounded-full" />
-          <div className="absolute -bottom-2.5 left-[-10px] w-5 h-5 bg-[#eab4ab] rounded-full" />
+          <div className="absolute -top-2 left-[-8px] w-4 h-4 bg-[#eab4ab] rounded-full" />
+          <div className="absolute -bottom-2 left-[-8px] w-4 h-4 bg-[#eab4ab] rounded-full" />
 
           {/* Stub text */}
           <div 
-            className="transform -rotate-90 text-[#601920] text-[10px] md:text-xs tracking-widest pointer-events-none w-[80px] md:w-[100px] text-center leading-tight font-black uppercase"
+            className="transform -rotate-90 text-[#601920] text-[9px] md:text-[10px] tracking-widest pointer-events-none w-[70px] md:w-[80px] text-center leading-tight font-black uppercase"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Top Secret
@@ -110,10 +110,10 @@ const Coupon = ({ mysteryTitle, isLast, onClick, disabled }) => {
               top: { duration: 0.8, ease: "easeInOut" },
               rotate: { duration: 0.2, repeat: 4, ease: "easeInOut" }
             }}
-            className="absolute right-[96px] md:right-[128px] -translate-x-[12px] z-50 pointer-events-none will-change-transform"
+            className="absolute right-[80px] md:right-[112px] -translate-x-[12px] z-50 pointer-events-none will-change-transform"
             style={{ y: '-50%' }}
           >
-            <Scissors size={28} className="text-stone-900 drop-shadow-sm animate-pulse" />
+            <Scissors size={24} className="text-stone-900 drop-shadow-sm animate-pulse" />
           </motion.div>
         )}
       </div>
@@ -170,7 +170,7 @@ export default function CouponsPage({ isActive, onBackClick, onSelectCoupon }) {
 
   return (
     <motion.div 
-      className="relative w-full min-h-screen bg-[#eab4ab] py-12 px-4 overflow-y-auto overflow-x-hidden"
+      className="relative w-full min-h-screen bg-[#eab4ab] py-6 px-4 overflow-y-auto overflow-x-hidden"
     >
       {/* Background Scattered Photos (No frame effect) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block z-0">
