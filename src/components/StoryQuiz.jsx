@@ -22,7 +22,6 @@ export default function StoryQuiz({ onCompleteQuiz, onCancelQuiz }) {
   const [currentInput, setCurrentInput] = useState("");
   const [showInterlude, setShowInterlude] = useState(false);
   const [direction, setDirection] = useState(1);
-  const [isRidingAway, setIsRidingAway] = useState(false);
 
   const handleBack = () => {
     setDirection(-1);
@@ -196,7 +195,7 @@ export default function StoryQuiz({ onCompleteQuiz, onCancelQuiz }) {
 
                <div className="mt-8 flex justify-end">
                  <button 
-                   onClick={() => setIsRidingAway(true)}
+                   onClick={() => setStep(14)}
                    className="px-6 py-2 bg-[#f5efe2] hover:bg-[#eab4ab] text-[#601920] font-bold rounded-full shadow-sm transition-colors uppercase tracking-widest text-xs border border-[#eab4ab]/50"
                  >
                    Thank You
@@ -205,38 +204,6 @@ export default function StoryQuiz({ onCompleteQuiz, onCancelQuiz }) {
              </div>
           </div>
         </div>
-
-        {/* Bike riding away animation */}
-        {isRidingAway && (
-          <motion.div 
-            className="absolute inset-0 z-[10000] pointer-events-none flex items-center whitespace-nowrap"
-            initial={{ backgroundColor: 'rgba(250, 247, 240, 0)' }}
-            animate={{ backgroundColor: 'rgba(250, 247, 240, 0.9)' }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.div
-              initial={{ x: '100vw' }}
-              animate={{ x: '-250vw' }}
-              transition={{ duration: 2.5, ease: "linear" }}
-              onAnimationComplete={() => {
-                setStep(14);
-                setIsRidingAway(false);
-              }}
-              className="absolute top-1/2 -translate-y-1/2 flex items-center whitespace-nowrap will-change-transform"
-            >
-              <img 
-                src="/bike.png" 
-                alt="Bike" 
-                className="w-48 md:w-64 lg:w-80 object-contain z-50 relative drop-shadow-sm" 
-                style={{ transform: 'scaleX(-3.5) scaleY(3.5)' }}
-              />
-              <span className="text-[#c42d3c] font-black text-5xl md:text-7xl lg:text-[120px] italic tracking-widest relative z-40 ml-12 drop-shadow-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
-                Majaaaaaaaaaaaaaaaaaaaaa
-              </span>
-            </motion.div>
-          </motion.div>
-        )}
-
       </motion.div>
     );
   }
